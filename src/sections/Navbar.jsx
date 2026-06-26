@@ -21,29 +21,28 @@ export default function Navbar() {
   }, []);
 
   return (
-    <motion.nav 
+    <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'py-4 bg-background/80 backdrop-blur-md border-b border-white/5 shadow-lg' : 'py-6 bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-4 bg-background/80 backdrop-blur-md border-b border-white/5 shadow-lg' : 'py-6 bg-transparent'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         {/* Logo */}
         <a href="#home" className="flex items-center gap-3 group">
-          <div className="text-3xl font-bold tracking-tighter text-primary">N\W</div>
+          <div className="text-3xl font-bold tracking-tighter text-primary">N</div>
           <div className="flex flex-col hidden sm:flex">
             <span className="text-sm font-semibold text-white leading-tight">Nikita Varkhade</span>
-            <span className="text-xs text-white/60 leading-tight">Full Stack Developer</span>
+            <span className="text-xs text-white/60 leading-tight">Software Developer</span>
           </div>
         </a>
 
         {/* Links */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
-            <a 
-              key={link.name} 
+            <a
+              key={link.name}
               href={link.href}
               className="text-sm font-medium text-white/70 hover:text-white transition-colors relative group"
             >
