@@ -22,7 +22,7 @@ export default function About() {
     <section id="about" className="py-20 relative z-10">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          
+
           {/* About Me Column */}
           <div>
             <div className="flex items-center gap-2 mb-6">
@@ -30,7 +30,7 @@ export default function About() {
               <span className="text-primary font-medium tracking-wide text-sm">About Me</span>
             </div>
 
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -40,15 +40,16 @@ export default function About() {
               <span className="text-primary">Digital</span> Reality
             </motion.h2>
 
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
               className="text-white/70 text-lg mb-8 leading-relaxed"
             >
-              I'm a passionate Full Stack Developer with expertise in Java, Spring Boot, React, and modern web technologies. I enjoy building end-to-end applications that are fast, secure, and user-friendly.
-            </motion.p>
+              I develop modern web experiences for businesses and organizations using clean design, scalable development and user-focused solutions.
+
+              Worked on real-world company projects from concept to implementation.            </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
