@@ -5,3 +5,5 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
 })
+
+// Triggering Vite restart to pick up Tailwind CSS v3
