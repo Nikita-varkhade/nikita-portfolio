@@ -40,10 +40,20 @@ ${message}
   };
 
   const autoReplyOptions = {
-    from: 'varkhadenikita21@gmail.com',
+    from: '"Nikita Varkhade" <varkhadenikita21@gmail.com>',
     to: email,
     subject: 'Thank you for reaching out!',
-    text: 'Thank you for contacting me , will connect you as soon as possible .'
+    text: 'Thank you for contacting me, I will connect with you as soon as possible.',
+    html: `
+      <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
+        <h2>Hello ${name},</h2>
+        <p>Thank you for reaching out to me through my portfolio!</p>
+        <p>I have received your message and will get back to you as soon as possible.</p>
+        <br/>
+        <p>Best regards,</p>
+        <p><strong>Nikita Varkhade</strong></p>
+      </div>
+    `
   };
 
   try {
