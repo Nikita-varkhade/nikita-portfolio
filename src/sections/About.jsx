@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import MagneticButton from '../components/MagneticButton';
 import { User, CheckCircle2 } from 'lucide-react';
 
@@ -13,6 +14,8 @@ const features = [
 ];
 
 export default function About() {
+  const navigate = useNavigate();
+
   return (
     <section id="about" className="py-20 relative z-10">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -63,7 +66,7 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <MagneticButton variant="outline" className="border-primary/50 text-white hover:bg-primary/10 px-6 py-3">
+            <MagneticButton variant="outline" className="border-primary/50 text-white hover:bg-primary/10 px-6 py-3" onClick={() => navigate('/journey')}>
               <User className="w-4 h-4 mr-2" /> View My Journey
             </MagneticButton>
           </motion.div>

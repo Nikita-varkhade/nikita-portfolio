@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import CustomCursor from './components/CustomCursor';
 import ScrollProgress from './components/ScrollProgress';
 import ParticleBackground from './components/ParticleBackground';
@@ -13,30 +14,47 @@ import Process from './sections/Process';
 import Testimonials from './sections/Testimonials';
 import Contact from './sections/Contact';
 import Footer from './sections/Footer';
+import Journey from './pages/Journey';
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+  const isJourneyPage = location.pathname === '/journey';
+
   return (
     <div className="bg-background min-h-screen text-white font-sans overflow-hidden relative">
       <ParticleBackground />
-      <RocketLaunch />
+      {!isJourneyPage && <RocketLaunch />}
       <CustomCursor />
       <ScrollProgress />
       
       <Navbar />
       
-      <main>
-        <Hero />
-        <About />
-        <Stats />
-        <Skills />
-        <Projects />
-        <Process />
-        <Testimonials />
-        <Contact />
-      </main>
+      <Routes>
+        <Route path="/" element={
+          <main>
+            <Hero />
+            <About />
+            <Stats />
+            <Skills />
+            <Projects />
+            <Process />
+            <Testimonials />
+            <Contact />
+          </main>
+        } />
+        <Route path="/journey" element={<Journey />} />
+      </Routes>
       
       <Footer />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 

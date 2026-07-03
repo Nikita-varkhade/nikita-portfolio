@@ -1,10 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import MagneticButton from '../components/MagneticButton';
 import { ArrowRight, Send, Mail, MessageCircle, CheckCircle2 } from 'lucide-react';
 import profileImg from '../../images/profile.jpeg';
 
 export default function Hero() {
+  const navigate = useNavigate();
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-10">
       {/* Background Effects */}
@@ -59,8 +62,10 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-wrap items-center gap-4 mb-10"
           >
-            <MagneticButton variant="glow" onClick={() => document.getElementById('contact').scrollIntoView()}>
-              Hire Me<ArrowRight className="w-4 h-4 ml-1" />
+
+            
+            <MagneticButton variant="outline" className="px-6 border-white/20" onClick={() => document.getElementById('contact').scrollIntoView()}>
+              Hire Me
             </MagneticButton>
 
             <MagneticButton variant="outline" className="px-6 border-white/20" onClick={() => document.getElementById('contact').scrollIntoView()}>
