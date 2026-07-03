@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import MagneticButton from '../components/MagneticButton';
-import { ArrowRight, Send, Mail, MessageCircle } from 'lucide-react';
+import { ArrowRight, Send, Mail, MessageCircle, CheckCircle2 } from 'lucide-react';
 import profileImg from '../../images/profile.jpeg';
 
 export default function Hero() {
@@ -18,7 +18,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex items-center gap-2 mb-4"
+            className="flex items-center gap-2 mt-8 mb-4"
           >
             <span className="text-2xl">👋</span>
             <span className="text-lg font-medium text-white/90">Hello, I'm</span>
@@ -40,8 +40,8 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-2xl md:text-3xl font-semibold mb-6"
           >
-            <span className="text-white">Software </span>
-            <span className="text-primary">Developer</span>
+            <span className="text-white">Freelance </span>
+            <span className="text-primary">Web Developer</span>
           </motion.h2>
 
           <motion.p
@@ -50,7 +50,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-base md:text-lg text-white/60 max-w-xl mb-10 leading-relaxed"
           >
-            I build scalable, efficient, and user-friendly web applications that solve real-world problems.
+            I help startups, local businesses, and organizations build professional websites that attract more customers.
           </motion.p>
 
           <motion.div
@@ -59,12 +59,12 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-wrap items-center gap-4 mb-10"
           >
-            <MagneticButton variant="glow" onClick={() => document.getElementById('projects').scrollIntoView()}>
-              View My Work <ArrowRight className="w-4 h-4 ml-1" />
+            <MagneticButton variant="glow" onClick={() => document.getElementById('contact').scrollIntoView()}>
+              Hire Me<ArrowRight className="w-4 h-4 ml-1" />
             </MagneticButton>
 
             <MagneticButton variant="outline" className="px-6 border-white/20" onClick={() => document.getElementById('contact').scrollIntoView()}>
-              <Send className="w-4 h-4 mr-2" /> Contact Me
+              💬 Let's Talk
             </MagneticButton>
           </motion.div>
 
@@ -103,8 +103,28 @@ export default function Hero() {
 
             {/* Image Container */}
             <div className="w-full h-full rounded-full overflow-hidden relative z-10 bg-surface border border-white/10">
-              <img src={profileImg} alt="Nikita Varkhade" className="w-full h-full object-cover" />
+              <img src={profileImg} alt="Nikita Varkhade" className="w-full h-full object-cover object-[center_20%] scale-[1.05]" />
             </div>
+
+            {/* Freelance Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 1.2, type: "spring", stiffness: 100 }}
+              className="absolute bottom-6 -left-6 md:bottom-12 md:-left-4 z-20"
+            >
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="bg-black/50 backdrop-blur-md border border-primary/40 rounded-full py-2.5 px-5 flex items-center gap-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+              >
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.8)]"></span>
+                </span>
+                <span className="text-white text-sm font-medium tracking-wide whitespace-nowrap">Available for Freelance</span>
+              </motion.div>
+            </motion.div>
           </div>
         </motion.div>
 

@@ -34,7 +34,7 @@ export default function Navbar() {
           <div className="text-3xl font-bold tracking-tighter text-primary">N</div>
           <div className="flex flex-col hidden sm:flex">
             <span className="text-sm font-semibold text-white leading-tight">Nikita Varkhade</span>
-            <span className="text-xs text-white/60 leading-tight">Software Developer</span>
+            <span className="text-xs text-white/60 leading-tight">Freelance Full Stack Web Developer</span>
           </div>
         </a>
 
@@ -56,7 +56,7 @@ export default function Navbar() {
         <div className="hidden md:block">
           <a href="/resume.pdf" download className="flex items-center gap-2 px-5 py-2.5 rounded-lg border border-white/10 text-sm font-medium text-white hover:bg-white/5 hover:border-primary/50 transition-all">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            Download Resume
+            Download CV
           </a>
         </div>
 

@@ -5,24 +5,24 @@ import { Code2, Users, Trophy } from 'lucide-react';
 const stats = [
   {
     icon: <Code2 className="w-8 h-8 text-primary mb-4" />,
-    value: "10+",
+    value: "5+",
     label: "Projects Completed"
   },
   {
     icon: <Users className="w-8 h-8 text-[#00adb5] mb-4" />,
-    value: "8+",
+    value: "4+",
     label: "Happy Clients"
   },
   {
     icon: <Trophy className="w-8 h-8 text-emerald-500 mb-4" />,
-    value: "5+",
+    value: "6+",
     label: "Technologies"
   }
 ];
 
 export default function Stats() {
   return (
-    <section className="py-10 relative z-20 -mt-10">
+    <section className="py-20 md:py-24 relative z-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
           {stats.map((stat, index) => (
