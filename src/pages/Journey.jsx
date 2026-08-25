@@ -80,67 +80,153 @@ export default function Journey() {
       <section className="py-16 px-6 md:px-12 max-w-5xl mx-auto relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           
-          {/* Story */}
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="space-y-6"
-          >
-            <motion.h2 variants={fadeInUp} className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
-              <BookOpen className="text-primary w-8 h-8" />
-              The Story
-            </motion.h2>
-            
-            <motion.p variants={fadeInUp} className="text-lg text-white/70 leading-relaxed">
-              Hi, I'm <span className="text-white font-medium">Nikita Varkhade</span>.
-            </motion.p>
-            
-            <motion.p variants={fadeInUp} className="text-lg text-white/70 leading-relaxed">
-              I completed my Bachelor of Science in Computer Science from Savitribai Phule Pune University.
-            </motion.p>
-            
-            <motion.p variants={fadeInUp} className="text-lg text-white/70 leading-relaxed">
-              My journey into web development started with curiosity about how websites work. That curiosity soon became a passion for creating responsive, user-friendly and visually appealing applications.
-            </motion.p>
-            
-            <motion.p variants={fadeInUp} className="text-lg text-white/70 leading-relaxed">
-              Over time I explored HTML, CSS, JavaScript, React.js, Java, MySQL and modern development tools.
-            </motion.p>
-            
-            <motion.p variants={fadeInUp} className="text-lg text-white/70 leading-relaxed">
-              Today I focus on building professional websites, dashboards and web applications that solve real business problems while delivering excellent user experiences.
-            </motion.p>
-          </motion.div>
+          {/* Left Column: Story & Certifications */}
+          <div className="space-y-8">
+            {/* Story */}
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="space-y-6"
+            >
+              <motion.h2 variants={fadeInUp} className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <BookOpen className="text-primary w-8 h-8" />
+                The Story
+              </motion.h2>
+              
+              <motion.p variants={fadeInUp} className="text-lg text-white/70 leading-relaxed">
+                Hi, I'm <span className="text-white font-medium">Nikita Varkhade</span>.
+              </motion.p>
+              
+              <motion.p variants={fadeInUp} className="text-lg text-white/70 leading-relaxed">
+                I completed my Bachelor of Science in Computer Science from Savitribai Phule Pune University.
+              </motion.p>
+              
+              <motion.p variants={fadeInUp} className="text-lg text-white/70 leading-relaxed">
+                My journey into web development started with curiosity about how websites work. That curiosity soon became a passion for creating responsive, user-friendly and visually appealing applications.
+              </motion.p>
+              
+              <motion.p variants={fadeInUp} className="text-lg text-white/70 leading-relaxed">
+                Over time I explored HTML, CSS, JavaScript, React.js, Java, MySQL and modern development tools.
+              </motion.p>
+              
+              <motion.p variants={fadeInUp} className="text-lg text-white/70 leading-relaxed">
+                Today I focus on building professional websites, dashboards and web applications that solve real business problems while delivering excellent user experiences.
+              </motion.p>
+            </motion.div>
 
-          {/* Education Timeline */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="glass-card p-8 rounded-3xl border border-white/10 relative overflow-hidden group"
-          >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[50px] group-hover:bg-primary/40 transition-all duration-700"></div>
-            
-            <div className="flex items-center gap-4 mb-6 relative z-10">
-              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                <GraduationCap className="w-6 h-6 text-primary" />
+            {/* Certifications */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="glass-card p-8 rounded-3xl border border-white/10 relative overflow-hidden group"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[50px] group-hover:bg-primary/40 transition-all duration-700"></div>
+              
+              <div className="flex items-center gap-4 mb-6 relative z-10">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                  <Trophy className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-2xl font-bold text-white">Certifications</h2>
               </div>
-              <h2 className="text-2xl font-bold text-white">Education</h2>
-            </div>
-            
-            <div className="relative pl-6 border-l-2 border-white/10 mt-8 space-y-8 z-10">
-              <div className="relative">
-                <div className="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-primary ring-4 ring-background"></div>
-                <h3 className="text-xl font-semibold text-white mb-2">Bachelor of Science</h3>
-                <h4 className="text-primary font-medium mb-2">Computer Science</h4>
-                <p className="text-white/60 mb-2">Savitribai Phule Pune University</p>
-                <span className="inline-block px-3 py-1 bg-white/5 rounded-full text-sm text-white/50">Graduated</span>
+              
+              <ul className="space-y-4 relative z-10 pl-1">
+                {[
+                  { name: "Full Stack Java Development", issuer: "The Kiran Academy" },
+                  { name: "Java Programming", issuer: "Crio" },
+                  { name: "Career Skills in Software Development", issuer: "LinkedIn Learning" }
+                ].map((cert, idx) => (
+                  <li key={idx} className="flex gap-3 items-start">
+                    <span className="text-primary mt-1 text-sm">🏆</span>
+                    <div>
+                      <h4 className="font-semibold text-white leading-snug">{cert.name}</h4>
+                      <p className="text-xs text-white/50">{cert.issuer}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* Right Column: Experience & Education */}
+          <div className="space-y-8">
+            {/* Experience Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="glass-card p-8 rounded-3xl border border-white/10 relative overflow-hidden group"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[50px] group-hover:bg-primary/40 transition-all duration-700"></div>
+              
+              <div className="flex items-center gap-4 mb-6 relative z-10">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                  <Code2 className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-2xl font-bold text-white">Experience</h2>
               </div>
-            </div>
-          </motion.div>
+              
+              <div className="relative pl-6 border-l-2 border-white/10 mt-8 space-y-8 z-10">
+                <div className="relative">
+                  <div className="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-primary ring-4 ring-background"></div>
+                  <h3 className="text-xl font-semibold text-white mb-1">Software Developer Intern</h3>
+                  <h4 className="text-primary font-medium mb-1">MR Network Web Solution</h4>
+                  <p className="text-white/50 text-sm mb-3">May 2026 – Present</p>
+                  
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {["React.js", "Spring Boot", "Laravel", "Node.js", "Tailwind CSS", "MySQL", "GitLab"].map((tech) => (
+                      <span key={tech} className="text-[10px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-white/70">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <ul className="text-sm text-white/70 space-y-2 list-disc pl-4">
+                    <li>Developed and maintained responsive web applications using React.js, Tailwind CSS, HTML5, CSS3, and JavaScript.</li>
+                    <li>Worked on live client projects by implementing new features and fixing bugs.</li>
+                    <li>Integrated REST APIs with frontend applications for seamless data communication.</li>
+                    <li>Contributed to backend development using Java Spring Boot, Laravel, and Node.js.</li>
+                    <li>Collaborated with the development team using Git and GitLab for version control.</li>
+                    <li>Assisted in deployment, build troubleshooting, and application maintenance.</li>
+                    <li>Optimized UI responsiveness and improved user experience across devices.</li>
+                    <li>Participated in testing, debugging, and code review to ensure application quality.</li>
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Education Timeline */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="glass-card p-8 rounded-3xl border border-white/10 relative overflow-hidden group"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[50px] group-hover:bg-primary/40 transition-all duration-700"></div>
+              
+              <div className="flex items-center gap-4 mb-6 relative z-10">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                  <GraduationCap className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-2xl font-bold text-white">Education</h2>
+              </div>
+              
+              <div className="relative pl-6 border-l-2 border-white/10 mt-8 space-y-8 z-10">
+                <div className="relative">
+                  <div className="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-primary ring-4 ring-background"></div>
+                  <h3 className="text-xl font-semibold text-white mb-1">Bachelor of Science in Computer Science</h3>
+                  <h4 className="text-primary font-medium mb-1">Savitribai Phule Pune University</h4>
+                  <p className="text-white/60 mb-2">CGPA: 7.73</p>
+                  <span className="inline-block px-3 py-1 bg-white/5 rounded-full text-sm text-white/50">2022–2025</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -170,7 +256,7 @@ export default function Journey() {
               <h3 className="text-xl font-semibold">Frontend</h3>
             </div>
             <ul className="space-y-3">
-              {['HTML', 'CSS', 'JavaScript', 'React', 'Tailwind CSS'].map(skill => (
+              {['React.js', 'JavaScript', 'Tailwind CSS', 'HTML5 & CSS3', 'Vite'].map(skill => (
                 <li key={skill} className="flex items-center gap-2 text-white/70">
                   <span className="text-primary">✔</span> {skill}
                 </li>
@@ -192,7 +278,7 @@ export default function Journey() {
               <h3 className="text-xl font-semibold">Backend</h3>
             </div>
             <ul className="space-y-3">
-              {['Java', 'Spring Boot (Learning)'].map(skill => (
+              {['Java', 'Spring & Spring Boot', 'Hibernate', 'REST APIs', 'Node.js & Laravel'].map(skill => (
                 <li key={skill} className="flex items-center gap-2 text-white/70">
                   <span className="text-primary">✔</span> {skill}
                 </li>
@@ -200,7 +286,7 @@ export default function Journey() {
             </ul>
           </motion.div>
 
-          {/* Database */}
+          {/* Database & Concepts */}
           <motion.div 
             whileHover={{ y: -10 }}
             initial={{ opacity: 0, y: 20 }}
@@ -211,10 +297,10 @@ export default function Journey() {
           >
             <div className="flex items-center gap-3 mb-6">
               <Database className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
-              <h3 className="text-xl font-semibold">Database</h3>
+              <h3 className="text-xl font-semibold">Database &amp; Concepts</h3>
             </div>
             <ul className="space-y-3">
-              {['MySQL', 'Firebase'].map(skill => (
+              {['MySQL Database', 'OOPs & MVC', 'Responsive Web Design', 'Data Structures'].map(skill => (
                 <li key={skill} className="flex items-center gap-2 text-white/70">
                   <span className="text-primary">✔</span> {skill}
                 </li>
@@ -222,7 +308,7 @@ export default function Journey() {
             </ul>
           </motion.div>
 
-          {/* Tools */}
+          {/* Tools & Workflow */}
           <motion.div 
             whileHover={{ y: -10 }}
             initial={{ opacity: 0, y: 20 }}
@@ -233,10 +319,10 @@ export default function Journey() {
           >
             <div className="flex items-center gap-3 mb-6">
               <Wrench className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
-              <h3 className="text-xl font-semibold">Tools</h3>
+              <h3 className="text-xl font-semibold">Tools &amp; Workflow</h3>
             </div>
             <ul className="space-y-3">
-              {['Git', 'GitHub', 'VS Code', 'Postman'].map(skill => (
+              {['Git, GitHub & GitLab', 'VS Code & Eclipse', 'Postman', 'Maven'].map(skill => (
                 <li key={skill} className="flex items-center gap-2 text-white/70">
                   <span className="text-primary">✔</span> {skill}
                 </li>

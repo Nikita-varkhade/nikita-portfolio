@@ -11,17 +11,18 @@ export default function Contact() {
     setStatus('sending');
     const form = e.target;
     const formData = new FormData(form);
-    
+
     try {
-      const response = await fetch('http://localhost:3001/api/contact', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      const response = await fetch(`${apiUrl}/api/contact`, {
         method: 'POST',
-        headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
         body: JSON.stringify(Object.fromEntries(formData))
       });
-      
+
       if (response.ok) {
         setStatus('success');
         form.reset();
@@ -70,7 +71,7 @@ export default function Contact() {
                 name="name"
                 required
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary focus:bg-white/10 transition-all"
-                placeholder="John Doe"
+                placeholder="Enter your name"
               />
             </div>
             <div className="space-y-2">
@@ -80,7 +81,7 @@ export default function Contact() {
                 name="email"
                 required
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary focus:bg-white/10 transition-all"
-                placeholder="varkhadenikita21@gmail.com"
+                placeholder="abc@xyz.com"
               />
             </div>
           </div>
@@ -92,7 +93,7 @@ export default function Contact() {
               name="mobile"
               required
               className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary focus:bg-white/10 transition-all"
-              placeholder="+91 9876543210"
+              placeholder="xxxxxxxxxx"
             />
           </div>
 
