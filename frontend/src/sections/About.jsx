@@ -22,10 +22,10 @@ export default function About() {
         <div className="max-w-4xl">
           <div className="flex items-center gap-2 mb-6">
             <div className="w-2 h-2 rounded-full bg-primary"></div>
-            <span className="text-primary font-medium tracking-wide text-sm">About Me</span>
+            <h2 className="text-primary font-medium tracking-wide text-sm m-0">About Me</h2>
           </div>
 
-          <motion.h2
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -33,7 +33,7 @@ export default function About() {
           >
             Turning Ideas Into <br className="hidden md:block" />
             <span className="text-primary">Digital</span> Reality
-          </motion.h2>
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -42,7 +42,7 @@ export default function About() {
             transition={{ delay: 0.1 }}
             className="text-white/70 text-lg mb-8 leading-relaxed"
           >
-            I am a passionate freelance web developer dedicated to building modern, scalable, and user-centric digital solutions. With expertise in full-stack development, I transform complex requirements into seamless web applications. Whether it's crafting intuitive interfaces or architecting robust backend systems, I focus on delivering high-quality code and exceptional user experiences.
+            I am Nikita Varkhade, a passionate Java Full Stack Developer based in Pune, dedicated to building modern, scalable, and user-centric digital solutions. With expertise in Java, Spring Boot, React.js, REST APIs, and MySQL, I transform complex requirements into seamless web applications. Whether it's crafting intuitive frontend interfaces or architecting robust backend systems, I focus on delivering high-quality code and exceptional full stack development experiences.
           </motion.p>
 
           <motion.div

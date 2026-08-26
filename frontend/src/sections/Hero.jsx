@@ -27,7 +27,7 @@ export default function Hero() {
             <span className="text-lg font-medium text-white/90">Hello, I'm</span>
           </motion.div>
 
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -35,17 +35,17 @@ export default function Hero() {
           >
             <span className="text-white">Nikita </span>
             <span className="text-primary">Varkhade</span>
-          </motion.h1>
+          </motion.div>
 
-          <motion.h2
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-2xl md:text-3xl font-semibold mb-6"
           >
-            <span className="text-white">Freelance </span>
-            <span className="text-primary">Web Developer</span>
-          </motion.h2>
+            <span className="text-white">Java Full Stack Developer </span>
+            <span className="text-primary">in Pune</span>
+          </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
