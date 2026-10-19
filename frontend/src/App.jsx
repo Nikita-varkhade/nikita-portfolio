@@ -7,7 +7,6 @@ import RocketLaunch from './components/RocketLaunch';
 import Navbar from './sections/Navbar';
 import Hero from './sections/Hero';
 import About from './sections/About';
-import Stats from './sections/Stats';
 import Skills from './sections/Skills';
 import Projects from './sections/Projects';
 import Process from './sections/Process';
@@ -34,7 +33,6 @@ function AppContent() {
           <main>
             <Hero />
             <About />
-            <Stats />
             <Skills />
             <Projects />
             <Process />
