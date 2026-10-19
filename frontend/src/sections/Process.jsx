@@ -31,9 +31,10 @@ export default function Process() {
         
         <div className="text-center mb-20">
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.35 }}
             className="text-4xl md:text-5xl font-bold mb-4"
           >
             Development <span className="text-gradient-primary">Process</span>
@@ -48,10 +49,10 @@ export default function Process() {
             {steps.map((step, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.35, delay: index * 0.08 }}
                 className="relative"
               >
                 {/* Node */}

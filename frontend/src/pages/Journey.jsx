@@ -24,8 +24,8 @@ import {
 } from 'lucide-react';
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+  hidden: { opacity: 0, y: 15 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' } }
 };
 
 const staggerContainer = {
@@ -33,7 +33,7 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: 0.05
     }
   }
 };
@@ -51,25 +51,25 @@ export default function Journey() {
       {/* 1. Hero Banner */}
       <section className="relative py-20 px-6 md:px-12 flex flex-col items-center text-center max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none"
         />
         
         <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.4, delay: 0.05 }}
           className="text-5xl md:text-7xl font-bold tracking-tight mb-6 relative z-10"
         >
           My <span className="text-gradient-primary">Journey</span>
         </motion.h1>
         
         <motion.p 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
           className="text-xl md:text-2xl text-white/70 max-w-3xl leading-relaxed relative z-10"
         >
           From a Computer Science student to a passionate Full Stack Web Developer building modern digital experiences.
@@ -155,10 +155,10 @@ export default function Journey() {
           <div className="space-y-8">
             {/* Experience Card */}
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.4 }}
               className="glass-card p-8 rounded-3xl border border-white/10 relative overflow-hidden group"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[50px] group-hover:bg-primary/40 transition-all duration-700"></div>
@@ -201,10 +201,10 @@ export default function Journey() {
 
             {/* Education Timeline */}
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
               className="glass-card p-8 rounded-3xl border border-white/10 relative overflow-hidden group"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[50px] group-hover:bg-primary/40 transition-all duration-700"></div>
@@ -245,14 +245,15 @@ export default function Journey() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Frontend */}
           <motion.div 
-            whileHover={{ y: -10 }}
-            initial={{ opacity: 0, y: 20 }}
+            whileHover={{ y: -3 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass-card p-6 rounded-2xl border border-white/10 group"
+            transition={{ duration: 0.35 }}
+            className="glass-card p-6 rounded-2xl border border-white/10 group transition-all duration-200"
           >
             <div className="flex items-center gap-3 mb-6">
-              <Code2 className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
+              <Code2 className="w-6 h-6 text-primary group-hover:scale-105 transition-transform duration-200" />
               <h3 className="text-xl font-semibold">Frontend</h3>
             </div>
             <ul className="space-y-3">
@@ -266,15 +267,15 @@ export default function Journey() {
 
           {/* Backend */}
           <motion.div 
-            whileHover={{ y: -10 }}
-            initial={{ opacity: 0, y: 20 }}
+            whileHover={{ y: -3 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="glass-card p-6 rounded-2xl border border-white/10 group"
+            transition={{ duration: 0.35, delay: 0.05 }}
+            className="glass-card p-6 rounded-2xl border border-white/10 group transition-all duration-200"
           >
             <div className="flex items-center gap-3 mb-6">
-              <Server className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
+              <Server className="w-6 h-6 text-primary group-hover:scale-105 transition-transform duration-200" />
               <h3 className="text-xl font-semibold">Backend</h3>
             </div>
             <ul className="space-y-3">
@@ -288,15 +289,15 @@ export default function Journey() {
 
           {/* Database & Concepts */}
           <motion.div 
-            whileHover={{ y: -10 }}
-            initial={{ opacity: 0, y: 20 }}
+            whileHover={{ y: -3 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="glass-card p-6 rounded-2xl border border-white/10 group"
+            transition={{ duration: 0.35, delay: 0.1 }}
+            className="glass-card p-6 rounded-2xl border border-white/10 group transition-all duration-200"
           >
             <div className="flex items-center gap-3 mb-6">
-              <Database className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
+              <Database className="w-6 h-6 text-primary group-hover:scale-105 transition-transform duration-200" />
               <h3 className="text-xl font-semibold">Database &amp; Concepts</h3>
             </div>
             <ul className="space-y-3">
@@ -310,15 +311,15 @@ export default function Journey() {
 
           {/* Tools & Workflow */}
           <motion.div 
-            whileHover={{ y: -10 }}
-            initial={{ opacity: 0, y: 20 }}
+            whileHover={{ y: -3 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="glass-card p-6 rounded-2xl border border-white/10 group"
+            transition={{ duration: 0.35, delay: 0.15 }}
+            className="glass-card p-6 rounded-2xl border border-white/10 group transition-all duration-200"
           >
             <div className="flex items-center gap-3 mb-6">
-              <Wrench className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
+              <Wrench className="w-6 h-6 text-primary group-hover:scale-105 transition-transform duration-200" />
               <h3 className="text-xl font-semibold">Tools &amp; Workflow</h3>
             </div>
             <ul className="space-y-3">
@@ -355,11 +356,11 @@ export default function Journey() {
           ].map((value, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              whileHover={{ y: -5, borderColor: 'rgba(108, 99, 255, 0.4)' }}
+              transition={{ duration: 0.3, delay: i * 0.05 }}
+              whileHover={{ y: -2, borderColor: 'rgba(108, 99, 255, 0.4)' }}
               className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col items-center justify-center text-center gap-4 group transition-colors"
             >
               <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -374,9 +375,10 @@ export default function Journey() {
       {/* 6. Beyond Coding */}
       <section className="py-16 px-6 md:px-12 max-w-4xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.35 }}
           className="glass-card p-8 md:p-12 rounded-[2.5rem] border border-white/10 relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[80px] pointer-events-none"></div>
@@ -405,10 +407,10 @@ export default function Journey() {
       {/* 7. My Mission */}
       <section className="py-24 px-6 md:px-12 max-w-5xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.35 }}
           className="relative rounded-3xl overflow-hidden p-12 text-center border border-primary/30"
         >
           <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-background z-0"></div>
