@@ -19,6 +19,13 @@ const projects = [
     liveLink: "https://www.empirecapitals.in/"
   },
   {
+    title: "Hunter Traders",
+    category: "Trading Platform / Website Development",
+    description: "Professional trading platform and mentorship website designed to showcase FX education, market solutions and company information.",
+    techStack: ["React.js", "JavaScript", "Tailwind CSS"],
+    liveLink: "https://huntertraders.com/"
+  },
+  {
     title: "AGS Agro Crop Solution",
     category: "Live Client Project",
     description: "Professional agricultural business website showcasing products, services and company information.",
