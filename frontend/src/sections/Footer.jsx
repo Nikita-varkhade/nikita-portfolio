@@ -1,4 +1,5 @@
 import React from 'react';
+import brandLogo from '../../images/webs-by-nikita-logo.png';
 
 export default function Footer() {
   const quickLinks = [
@@ -19,10 +20,20 @@ export default function Footer() {
 
           {/* Brand & Tagline */}
           <div className="flex flex-col items-start">
-            <div className="text-3xl font-bold tracking-tighter flex items-center gap-1 mb-4">
-              <span className="text-primary">N</span>
-              <span className="text-white">\</span>
-              <span className="text-primary">V</span>
+            <div className="flex items-center gap-3.5 mb-4">
+              <img
+                src={brandLogo}
+                alt="Webs By Nikita Logo"
+                className="w-12 h-12 rounded-full object-contain ring-2 ring-primary/40 shadow-[0_0_20px_rgba(109,93,251,0.25)] shrink-0"
+              />
+              <div>
+                <h3 className="text-xl font-bold tracking-tight text-white leading-tight">
+                  Webs By <span className="text-primary">Nikita</span>
+                </h3>
+                <p className="text-[11px] uppercase tracking-wider text-white/50 font-medium">
+                  Web Developer &amp; Freelancer
+                </p>
+              </div>
             </div>
             <p className="text-white/60 text-sm leading-relaxed max-w-xs mb-6">
               A passionate Freelance Full Stack Web Developer dedicated to building premium digital experiences that are fast, accessible, and visually stunning.

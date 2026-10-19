@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import brandLogo from '../../images/webs-by-nikita-logo.png';
 
 const links = [
   { name: 'Home', href: '/#home' },
@@ -29,12 +30,20 @@ export default function Navbar() {
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        {/* Logo */}
-        <a href="/#home" className="flex items-center gap-3 group">
-          <div className="text-3xl font-bold tracking-tighter text-primary">N</div>
-          <div className="flex flex-col hidden sm:flex">
-            <span className="text-sm font-semibold text-white leading-tight">Nikita Varkhade</span>
-            <span className="text-xs text-white/60 leading-tight">Freelance Full Stack Web Developer</span>
+        {/* Logo & Brand */}
+        <a href="/#home" className="flex items-center gap-2.5 sm:gap-3 group">
+          <img
+            src={brandLogo}
+            alt="Webs By Nikita Logo"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-contain ring-1 ring-primary/40 shadow-sm shrink-0 group-hover:ring-primary transition-all duration-200"
+          />
+          <div className="flex flex-col text-left">
+            <span className="text-sm sm:text-base font-bold text-white tracking-tight leading-tight group-hover:text-primary transition-colors">
+              Webs By <span className="text-primary">Nikita</span>
+            </span>
+            <span className="text-[11px] sm:text-xs text-white/60 leading-tight font-medium">
+              Freelance Web Developer
+            </span>
           </div>
         </a>
 
