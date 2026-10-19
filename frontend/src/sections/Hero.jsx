@@ -13,7 +13,7 @@ export default function Hero() {
       {/* Background Effects */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 relative z-10 w-full grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-10 xl:gap-12 items-center">
 
         {/* Left Content */}
         <div className="flex flex-col items-start text-left pt-6 lg:pt-0">
@@ -21,7 +21,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.05 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold tracking-tight mb-6 leading-[1.18] flex flex-col items-start gap-1 sm:gap-2"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.25rem] font-bold tracking-tight mb-6 leading-[1.18] flex flex-col items-start gap-1 sm:gap-2"
           >
             <span className="text-white">Software Developer</span>
             <span className="text-gradient-primary">Freelance Web Developer</span>
@@ -159,9 +159,9 @@ export default function Hero() {
                   ease: "easeInOut"
                 }
           }}
-          className="relative flex justify-center lg:justify-end"
+          className="relative flex justify-center lg:justify-center"
         >
-          <div className="relative w-[300px] h-[300px] sm:w-[340px] sm:h-[340px] md:w-[400px] md:h-[400px] rounded-full p-2">
+          <div className="relative w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[360px] md:h-[360px] lg:w-[380px] lg:h-[380px] xl:w-[400px] xl:h-[400px] rounded-full p-2 max-w-full">
             {/* Glowing Border Rings */}
             <div className="absolute inset-0 rounded-full border border-primary/40 shadow-[0_0_40px_rgba(109,93,251,0.25)]"></div>
             <div className="absolute inset-[-8px] rounded-full border border-primary/15"></div>

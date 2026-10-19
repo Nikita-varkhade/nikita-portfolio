@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import brandLogo from '../../images/webs-by-nikita-logo.png';
 
 const links = [
@@ -12,6 +12,7 @@ const links = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,17 +22,48 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu on desktop resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Close mobile menu on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setMobileMenuOpen(false);
+      }
+    };
+    if (mobileMenuOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [mobileMenuOpen]);
+
+  const handleLinkClick = () => {
+    setMobileMenuOpen(false);
+  };
+
   return (
     <motion.nav
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-4 bg-background/80 backdrop-blur-md border-b border-white/5 shadow-lg' : 'py-6 bg-transparent'
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled || mobileMenuOpen
+          ? 'py-4 bg-background/95 backdrop-blur-md border-b border-white/5 shadow-lg'
+          : 'py-6 bg-transparent'
+      }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         {/* Logo & Brand */}
-        <a href="/#home" className="flex items-center gap-2.5 sm:gap-3 group">
+        <a href="/#home" onClick={handleLinkClick} className="flex items-center gap-2.5 sm:gap-3 group">
           <img
             src={brandLogo}
             alt="Webs By Nikita Logo"
@@ -47,7 +79,7 @@ export default function Navbar() {
           </div>
         </a>
 
-        {/* Links */}
+        {/* Links (Desktop) */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
             <a
@@ -61,23 +93,86 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Download Resume Button */}
+        {/* Download Resume Button (Desktop) */}
         <div className="hidden md:block">
-          <a href="/NIKITA SUBHASH VARKHADE.pdf" download="NIKITA SUBHASH VARKHADE.pdf" className="flex items-center gap-2 px-5 py-2.5 rounded-lg border border-white/10 text-sm font-medium text-white hover:bg-white/5 hover:border-primary/50 transition-all">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <a
+            href="/NIKITA SUBHASH VARKHADE.pdf"
+            download="NIKITA SUBHASH VARKHADE.pdf"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-lg border border-white/10 text-sm font-medium text-white hover:bg-white/5 hover:border-primary/50 transition-all"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
             Download CV
           </a>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button className="md:hidden text-white">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
+        {/* Mobile Menu Toggle Button */}
+        <button
+          type="button"
+          aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={mobileMenuOpen}
+          onClick={() => setMobileMenuOpen((prev) => !prev)}
+          className="md:hidden text-white p-2 rounded-lg hover:bg-white/5 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50"
+        >
+          {mobileMenuOpen ? (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          ) : (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          )}
         </button>
       </div>
+
+      {/* Mobile Dropdown Navigation Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="md:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-b border-white/10 shadow-2xl"
+          >
+            <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col gap-2">
+              {links.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={handleLinkClick}
+                  className="text-base font-medium text-white/80 hover:text-white hover:text-primary transition-colors py-2.5 px-3 rounded-lg hover:bg-white/5"
+                >
+                  {link.name}
+                </a>
+              ))}
+
+              <div className="pt-3 border-t border-white/10 mt-2">
+                <a
+                  href="/NIKITA SUBHASH VARKHADE.pdf"
+                  download="NIKITA SUBHASH VARKHADE.pdf"
+                  onClick={handleLinkClick}
+                  className="flex items-center justify-center gap-2 w-full px-5 py-3 rounded-lg border border-primary/40 bg-primary/10 text-sm font-medium text-white hover:bg-primary/20 transition-all shadow-sm"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  Download CV
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 }
