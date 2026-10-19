@@ -1,7 +1,7 @@
 import React from 'react';
 import { cn } from '../utils/cn';
 
-export default function MagneticButton({ children, className, onClick, href, target, variant = 'primary' }) {
+export default function MagneticButton({ children, className, onClick, href, target, variant = 'primary', ...props }) {
   const variants = {
     primary: "bg-primary text-white hover:bg-glow hover:shadow-[0_0_20px_rgba(109,93,251,0.35)]",
     outline: "border border-white/20 text-white hover:bg-white/5 hover:border-white/40",
@@ -21,6 +21,7 @@ export default function MagneticButton({ children, className, onClick, href, tar
         className
       )}
       onClick={onClick}
+      {...props}
     >
       {children}
     </Component>
