@@ -31,9 +31,9 @@ function AppContent() {
         <Route path="/" element={
           <main>
             <Hero />
+            <Projects />
             <About />
             <Skills />
-            <Projects />
             <Process />
             <Contact />
           </main>
